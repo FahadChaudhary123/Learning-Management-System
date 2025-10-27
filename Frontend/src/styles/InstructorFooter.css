@@ -1,0 +1,339 @@
+/* Instructor Footer Styles - No Links Version */
+.instructor-footer {
+  background: linear-gradient(135deg, #1c1d1f 0%, #2d2f31 100%);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.instructor-footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #a435f0, transparent);
+  opacity: 0.3;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 32px 30px;
+  position: relative;
+}
+
+/* Main Footer Content */
+.footer-main {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 60px;
+  margin-bottom: 50px;
+}
+
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 28px;
+  font-weight: 800;
+  color: white;
+}
+
+.footer-logo .logo-icon {
+  font-size: 32px;
+  filter: drop-shadow(0 2px 8px rgba(164, 53, 240, 0.4));
+}
+
+.footer-logo .logo-text {
+  background: linear-gradient(135deg, #fff 0%, #a435f0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.footer-tagline {
+  color: #d1d7dc;
+  font-size: 16px;
+  line-height: 1.6;
+  max-width: 300px;
+  margin: 0;
+}
+
+.footer-social {
+  display: flex;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  color: #d1d7dc;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(10px);
+  position: relative;
+  overflow: hidden;
+  cursor: default;
+}
+
+.social-link::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(164, 53, 240, 0.2), transparent);
+  transition: left 0.6s ease;
+}
+
+.social-link:hover::before {
+  left: 100%;
+}
+
+.social-link:hover {
+  color: white;
+  background: rgba(164, 53, 240, 0.2);
+  border-color: rgba(164, 53, 240, 0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(164, 53, 240, 0.3);
+}
+
+/* Footer Info Sections */
+.footer-info-sections {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+}
+
+.info-column {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.footer-title {
+  color: white;
+  font-size: 16px;
+  font-weight: 700;
+  margin: 0;
+  letter-spacing: 0.5px;
+  background: linear-gradient(135deg, #fff 0%, #a435f0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.footer-text {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.footer-text p {
+  color: #d1d7dc;
+  font-size: 14px;
+  font-weight: 500;
+  margin: 0;
+  line-height: 1.4;
+  transition: all 0.3s ease;
+}
+
+.footer-text p:hover {
+  color: white;
+  transform: translateX(3px);
+}
+
+/* Footer Bottom */
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 30px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-copyright {
+  color: #d1d7dc;
+  font-size: 14px;
+  font-weight: 500;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.footer-subtext {
+  font-size: 12px;
+  color: #8a8f95;
+  font-style: italic;
+}
+
+.footer-extra {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: flex-end;
+}
+
+.footer-badges {
+  display: flex;
+  gap: 8px;
+}
+
+.security-badge,
+.award-badge,
+.quality-badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  color: #d1d7dc;
+  font-size: 12px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.security-badge:hover,
+.award-badge:hover,
+.quality-badge:hover {
+  background: rgba(164, 53, 240, 0.2);
+  color: white;
+  transform: translateY(-1px);
+}
+
+.footer-stats {
+  display: flex;
+  gap: 16px;
+}
+
+.stat-item {
+  color: #d1d7dc;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 8px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.stat-item:hover {
+  background: rgba(164, 53, 240, 0.1);
+  color: white;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .footer-main {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  .footer-info-sections {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+  }
+  
+  .footer-container {
+    padding: 50px 24px 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-main {
+    gap: 30px;
+  }
+  
+  .footer-info-sections {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+  
+  .footer-bottom {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
+  
+  .footer-extra {
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .footer-badges {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .footer-stats {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .footer-container {
+    padding: 40px 20px 25px;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-container {
+    padding: 30px 16px 20px;
+  }
+  
+  .footer-social {
+    justify-content: center;
+  }
+  
+  .footer-logo {
+    justify-content: center;
+    text-align: center;
+  }
+  
+  .footer-tagline {
+    text-align: center;
+    max-width: none;
+  }
+  
+  .footer-badges {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .footer-stats {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* Animation for footer appearance */
+@keyframes footerSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.instructor-footer {
+  animation: footerSlideUp 0.6s ease-out;
+}

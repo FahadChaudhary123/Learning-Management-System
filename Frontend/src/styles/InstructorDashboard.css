@@ -1,0 +1,1229 @@
+/* src/pages/instructor/InstructorDashboard.css */
+.instructor-dashboard {
+  min-height: 100vh;
+  background: #f7f9fa;
+}
+
+.dashboard-container {
+  max-width: 1200px;
+  margin-top: 60px;
+  padding: 24px;
+}
+
+/* Loading State */
+.dashboard-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100%;
+  text-align: center;
+}
+
+.loading-text {
+  color: #6a6f73;
+  font-size: 14px;
+  margin-bottom: 16px;
+}
+
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #f1f1f1;
+  border-top: 4px solid #a435f0;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+/* Error Banner */
+.error-banner {
+  background: #ffe6e6;
+  border: 1px solid #ff4757;
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin-bottom: 24px;
+}
+
+.error-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.error-icon {
+  font-size: 16px;
+  margin-right: 8px;
+}
+
+.error-content p {
+  color: #d13434;
+  font-size: 14px;
+  flex: 1;
+  margin: 0;
+}
+
+.error-close {
+  background: none;
+  border: none;
+  font-size: 18px;
+  color: #d13434;
+  cursor: pointer;
+  padding: 0;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Welcome Section */
+.welcome-section {
+  background: linear-gradient(135deg, #1c1d1f 0%, #2d2f31 100%);
+  border-radius: 12px;
+  padding: 32px;
+  margin-bottom: 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+}
+
+.welcome-content h1 {
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0 0 8px 0;
+  color: white;
+}
+
+.welcome-content p {
+  font-size: 16px;
+  color: #d1d7dc;
+  margin: 0;
+}
+
+/* Udemy Button Styles */
+.udemy-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.udemy-btn-primary {
+  background: #a435f0;
+  color: white;
+  border: 1px solid #a435f0;
+}
+
+.udemy-btn-primary:hover {
+  background: #8710d8;
+  border-color: #8710d8;
+}
+
+.udemy-btn-secondary {
+  background: transparent;
+  color: #1c1d1f;
+  border: 1px solid #1c1d1f;
+}
+
+.udemy-btn-secondary:hover {
+  background: #1c1d1f;
+  color: white;
+}
+
+.udemy-btn-ghost {
+  background: transparent;
+  color: #5624d0;
+  border: 1px solid #5624d0;
+}
+
+.udemy-btn-ghost:hover {
+  background: #f7f9fa;
+}
+
+/* Section Titles */
+.section-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1c1d1f;
+  margin: 0 0 24px 0;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  
+}
+
+.see-all-link {
+  color: #5624d0;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.see-all-link:hover {
+  color: #401b9c;
+}
+
+/* Stats Section */
+.stats-section {
+  margin-bottom: 48px;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.stat-card {
+  background: white;
+  border: 1px solid #d1d7dc;
+  border-radius: 8px;
+  padding: 24px;
+  transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
+}
+
+.stat-content {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.stat-icon-wrapper {
+  width: 48px;
+  height: 48px;
+  background: #f7f9fa;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stat-icon {
+  font-size: 20px;
+}
+
+.stat-number {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1c1d1f;
+  line-height: 1.2;
+}
+
+.stat-label {
+  font-size: 14px;
+  color: #6a6f73;
+  margin-top: 4px;
+}
+
+/* Actions Section */
+.actions-section {
+  margin-bottom: 48px;
+}
+
+.actions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.action-card {
+  background: white;
+  border: 1px solid #d1d7dc;
+  border-radius: 8px;
+  padding: 24px;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  transition: all 0.3s ease;
+}
+
+.action-card:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
+  border-color: #a435f0;
+}
+
+.action-icon-wrapper {
+  width: 48px;
+  height: 48px;
+  background: #f7f9fa;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.action-icon {
+  font-size: 20px;
+}
+
+.action-content {
+  flex: 1;
+}
+
+.action-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1c1d1f;
+  margin: 0 0 4px 0;
+}
+
+.action-description {
+  font-size: 14px;
+  color: #6a6f73;
+  margin: 0;
+}
+
+.action-arrow {
+  color: #5624d0;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+/* Courses Section */
+/* Updated Courses Section */
+.recent-courses {
+  margin-bottom: 48px;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  
+}
+
+.section-header h2 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1c1d1f;
+  margin: 0;
+}
+
+.see-all-link {
+  color: #5624d0;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.see-all-link:hover {
+  color: #401b9c;
+  text-decoration: underline;
+}
+
+/* Courses Grid */
+.courses-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.course-card {
+  background: white;
+  border: 1px solid #d1d7dc;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: all 0.2s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.course-card:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transform: translateY(-1px);
+}
+
+/* Course Image */
+.course-image {
+  position: relative;
+  height: 160px;
+  overflow: hidden;
+}
+
+.course-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.course-card:hover .course-image img {
+  transform: scale(1.05);
+}
+
+.course-status {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+}
+
+.status-badge {
+  padding: 10px 24px;
+  border-radius: 4px;
+  font-size: 20px;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+.status-badge.published {
+  background: #d4edda;
+  color: #155724;
+}
+
+.status-badge.draft {
+  background: #fff3cd;
+  color: #856404;
+}
+
+.status-badge.review {
+  background: #cce7ff;
+  color: #004085;
+}
+
+/* Course Content */
+.course-content {
+  padding: 16px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.course-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1c1d1f;
+  margin: 0 0 12px 0;
+  line-height: 1.4;
+  overflow: hidden;
+  min-height: 44px;
+  /* Remove webkit line clamp and use regular text overflow */
+  display: block;
+  max-height: 2.8em;
+}
+
+.course-meta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.meta-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: #6a6f73;
+  white-space: nowrap;
+}
+
+.meta-icon {
+  font-size: 14px;
+  width: 14px;
+  text-align: center;
+}
+
+/* Course Actions */
+.course-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: auto;
+  flex-direction: row; /* Explicitly set to row */
+  align-items: stretch; 
+}
+
+.course-actions .udemy-btn {
+  flex: 1;
+  padding: 10px 12px;
+  font-size: 12px;
+  text-align: center;
+  min-height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box; 
+}
+
+/* Ensure both buttons have equal size */
+.course-actions .udemy-btn-ghost,
+.course-actions .udemy-btn-secondary {
+  flex: 1;
+  min-width: 0; /* Prevents flex items from growing beyond container */
+  width: 100%;
+}
+
+/* Empty State */
+.empty-state {
+  text-align: center;
+  padding: 64px 24px;
+  background: white;
+  border: 1px solid #d1d7dc;
+  border-radius: 8px;
+}
+
+.empty-icon {
+  font-size: 64px;
+  margin-bottom: 16px;
+  opacity: 0.7;
+}
+
+.empty-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1c1d1f;
+  margin: 0 0 8px 0;
+}
+
+.empty-description {
+  font-size: 14px;
+  color: #6a6f73;
+  margin: 0 0 24px 0;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.5;
+}
+
+/* Responsive Design for Courses */
+@media (max-width: 768px) {
+  .courses-grid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px;
+  }
+  
+  .course-image {
+    height: 140px;
+  }
+  
+  .course-content {
+    padding: 12px;
+  }
+  
+  .course-title {
+    font-size: 15px;
+    min-height: 42px;
+  }
+  
+  .course-meta {
+    gap: 12px;
+  }
+  
+  .meta-item {
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 480px) {
+  .courses-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .course-meta {
+    gap: 8px;
+    justify-content: space-between;
+  }
+  
+  .course-actions {
+    flex-direction: row; /* Keep buttons in one row on mobile */
+    gap: 8px;
+  }
+  
+  .course-actions .udemy-btn {
+    padding: 8px 10px;
+    font-size: 11px;
+    min-height: 32px;
+  }
+  
+  .section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+}
+
+/* Small mobile devices */
+@media (max-width: 360px) {
+  .course-meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+  
+  .meta-item {
+    white-space: normal;
+  }
+}
+
+/* ==================== */
+/* LAPTOP RESPONSIVENESS */
+/* ==================== */
+
+/* Large Laptops (1441px - 1920px) */
+@media (min-width: 1441px) and (max-width: 1920px) {
+  .dashboard-container {
+    max-width: 1400px;
+    margin: 80px auto 0;
+    padding: 32px 48px;
+  }
+  
+  .welcome-section {
+    padding: 40px 48px;
+    margin-bottom: 40px;
+  }
+  
+  .welcome-content h1 {
+    font-size: 32px;
+  }
+  
+  .welcome-content p {
+    font-size: 18px;
+  }
+  
+  .udemy-btn {
+    padding: 14px 28px;
+    font-size: 15px;
+  }
+  
+  .section-title {
+    font-size: 28px;
+    margin-bottom: 32px;
+  }
+  
+  .stats-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+  }
+  
+  .stat-card {
+    padding: 28px;
+  }
+  
+  .stat-number {
+    font-size: 28px;
+  }
+  
+  .stat-label {
+    font-size: 15px;
+  }
+  
+  .actions-grid {
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 24px;
+  }
+  
+  .action-card {
+    padding: 28px;
+  }
+  
+  .action-title {
+    font-size: 17px;
+  }
+  
+  .action-description {
+    font-size: 15px;
+  }
+  
+  .courses-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 28px;
+  }
+  
+  .course-image {
+    height: 180px;
+  }
+  
+  .course-content {
+    padding: 20px;
+  }
+  
+  .course-title {
+    font-size: 17px;
+  }
+  
+  .empty-state {
+    padding: 80px 32px;
+  }
+  
+  .empty-title {
+    font-size: 24px;
+  }
+  
+  .empty-description {
+    font-size: 16px;
+  }
+}
+
+/* Standard Laptops (1281px - 1440px) */
+@media (min-width: 1281px) and (max-width: 1440px) {
+  .dashboard-container {
+    max-width: 1200px;
+    margin: 70px auto 0;
+    padding: 28px 40px;
+  }
+  
+  .welcome-section {
+    padding: 36px 40px;
+    margin-bottom: 36px;
+  }
+  
+  .welcome-content h1 {
+    font-size: 30px;
+  }
+  
+  .udemy-btn {
+    padding: 13px 26px;
+  }
+  
+  .section-title {
+    font-size: 26px;
+    margin-bottom: 28px;
+  }
+  
+  .stats-grid {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 22px;
+  }
+  
+  .stat-card {
+    padding: 26px;
+  }
+  
+  .stat-number {
+    font-size: 26px;
+  }
+  
+  .actions-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 22px;
+  }
+  
+  .action-card {
+    padding: 26px;
+  }
+  
+  .courses-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+  }
+  
+  .course-image {
+    height: 170px;
+  }
+}
+
+/* Medium Laptops (1025px - 1280px) */
+@media (min-width: 1025px) and (max-width: 1280px) {
+  .dashboard-container {
+    max-width: 1100px;
+    margin: 65px auto 0;
+    padding: 24px 32px;
+  }
+  
+  .welcome-section {
+    padding: 32px;
+    margin-bottom: 32px;
+  }
+  
+  .welcome-content h1 {
+    font-size: 28px;
+  }
+  
+  .welcome-content p {
+    font-size: 15px;
+  }
+  
+  .udemy-btn {
+    padding: 12px 24px;
+    font-size: 14px;
+  }
+  
+  .section-title {
+    font-size: 24px;
+    margin-bottom: 24px;
+  }
+  
+  .stats-grid {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+  }
+  
+  .stat-card {
+    padding: 24px;
+  }
+  
+  .stat-number {
+    font-size: 24px;
+  }
+  
+  .actions-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+  }
+  
+  .action-card {
+    padding: 24px;
+  }
+  
+  .courses-grid {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+  }
+  
+  .course-image {
+    height: 160px;
+  }
+}
+
+/* Small Laptops (993px - 1024px) */
+@media (min-width: 993px) and (max-width: 1024px) {
+  .dashboard-container {
+    max-width: 1000px;
+    margin: 60px auto 0;
+    padding: 20px 28px;
+  }
+  
+  .welcome-section {
+    padding: 28px;
+    margin-bottom: 28px;
+  }
+  
+  .welcome-content h1 {
+    font-size: 26px;
+  }
+  
+  .welcome-content p {
+    font-size: 14px;
+  }
+  
+  .udemy-btn {
+    padding: 11px 22px;
+    font-size: 13px;
+  }
+  
+  .section-title {
+    font-size: 22px;
+    margin-bottom: 22px;
+  }
+  
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+  }
+  
+  .stat-card {
+    padding: 22px;
+  }
+  
+  .stat-number {
+    font-size: 22px;
+  }
+  
+  .stat-label {
+    font-size: 13px;
+  }
+  
+  .actions-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 18px;
+  }
+  
+  .action-card {
+    padding: 22px;
+  }
+  
+  .action-title {
+    font-size: 15px;
+  }
+  
+  .action-description {
+    font-size: 13px;
+  }
+  
+  .courses-grid {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 18px;
+  }
+  
+  .course-image {
+    height: 150px;
+  }
+  
+  .course-content {
+    padding: 14px;
+  }
+  
+  .course-title {
+    font-size: 15px;
+  }
+  
+  .course-actions .udemy-btn {
+    padding: 7px 10px;
+    font-size: 11px;
+  }
+}
+
+/* Tablet Landscape (769px - 992px) */
+@media (max-width: 992px) {
+  .dashboard-container {
+    padding: 20px;
+    margin-top: 60px;
+  }
+  
+  .welcome-section {
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+    padding: 24px;
+  }
+  
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .actions-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .courses-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  
+  .course-actions {
+    flex-direction: column;
+  }
+}
+
+/* Tablet Portrait (601px - 768px) */
+@media (max-width: 768px) {
+  .dashboard-container {
+    padding: 16px;
+  }
+
+  .welcome-section {
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+    padding: 24px;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .actions-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .courses-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .course-actions {
+    flex-direction: column;
+  }
+}
+
+/* Mobile Devices (max-width: 600px) */
+@media (max-width: 600px) {
+  .dashboard-container {
+    padding: 12px;
+  }
+  
+  .welcome-content h1 {
+    font-size: 24px;
+  }
+
+  .section-title {
+    font-size: 20px;
+  }
+
+  .stat-card,
+  .action-card {
+    padding: 16px;
+  }
+  
+  .empty-state {
+    padding: 48px 20px;
+  }
+  
+  .empty-icon {
+    font-size: 56px;
+  }
+  
+  .empty-title {
+    font-size: 18px;
+  }
+  
+  .empty-description {
+    font-size: 13px;
+  }
+}
+
+/* Small Mobile Devices */
+@media (max-width: 480px) {
+  .dashboard-container {
+    padding: 8px;
+  }
+  
+  .welcome-content h1 {
+    font-size: 22px;
+  }
+  
+  .welcome-section {
+    padding: 20px;
+  }
+  
+  .udemy-btn {
+    width: 100%;
+    text-align: center;
+  }
+  
+  .stat-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 12px;
+  }
+  
+  .action-card {
+    flex-direction: column;
+    text-align: center;
+    gap: 12px;
+  }
+  
+  .action-arrow {
+    display: none;
+  }
+}
+
+/* Extra Large Screens (1921px+) */
+@media (min-width: 1921px) {
+  .dashboard-container {
+    max-width: 1600px;
+    margin: 100px auto 0;
+    padding: 48px 64px;
+  }
+  
+  .welcome-section {
+    padding: 48px 64px;
+    margin-bottom: 48px;
+  }
+  
+  .welcome-content h1 {
+    font-size: 36px;
+  }
+  
+  .welcome-content p {
+    font-size: 20px;
+  }
+  
+  .udemy-btn {
+    padding: 16px 32px;
+    font-size: 16px;
+  }
+  
+  .section-title {
+    font-size: 32px;
+    margin-bottom: 36px;
+  }
+  
+  .stats-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 28px;
+  }
+  
+  .stat-card {
+    padding: 32px;
+  }
+  
+  .stat-number {
+    font-size: 32px;
+  }
+  
+  .stat-label {
+    font-size: 16px;
+  }
+  
+  .actions-grid {
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 28px;
+  }
+  
+  .action-card {
+    padding: 32px;
+  }
+  
+  .action-title {
+    font-size: 18px;
+  }
+  
+  .action-description {
+    font-size: 16px;
+  }
+  
+  .courses-grid {
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 32px;
+  }
+  
+  .course-image {
+    height: 200px;
+  }
+  
+  .course-content {
+    padding: 24px;
+  }
+  
+  .course-title {
+    font-size: 18px;
+  }
+  
+  .course-actions .udemy-btn {
+    padding: 10px 14px;
+    font-size: 14px;
+  }
+  
+  .empty-state {
+    padding: 100px 48px;
+  }
+  
+  .empty-title {
+    font-size: 28px;
+  }
+  
+  .empty-description {
+    font-size: 18px;
+  }
+}
+
+/* High DPI (Retina) Screens */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .course-image img {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .welcome-section,
+  .actions-section,
+  .course-actions {
+    display: none;
+  }
+  
+  .stat-card,
+  .course-card {
+    break-inside: avoid;
+    box-shadow: none;
+    border: 1px solid #000;
+  }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  .course-card,
+  .stat-card,
+  .action-card,
+  .udemy-btn {
+    transition: none;
+  }
+  
+  .loading-spinner {
+    animation: none;
+  }
+}
+
+/* ======================================= */
+/* PERFECT ALIGNMENT FIX FOR DASHBOARD FLOW */
+/* ======================================= */
+
+/* Ensure all dashboard sections align vertically */
+.stats-section,
+.actions-section,
+.recent-courses {
+  margin: 0 auto 48px auto;
+  padding: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Force equal top distance between sections */
+.actions-section {
+  margin-top: 48px;
+}
+
+.recent-courses {
+  margin-top: 48px; /* Matches the spacing above Quick Actions */
+}
+
+/* Align internal grids (so cards line up visually) */
+.actions-grid,
+.courses-grid {
+  margin: 0;
+  padding: 0;
+  gap: 24px;
+  align-items: start; /* Ensures cards start at same vertical line */
+  justify-content: start;
+}
+
+/* Remove any unintended padding from child wrappers */
+.action-card,
+.course-card {
+  margin: 0;
+}
+
+/* Normalize section headers alignment */
+.section-header {
+  margin-top: 0;
+  margin-bottom: 24px;
+  padding: 0;
+}
+
+/* Make sure container alignment is consistent */
+.dashboard-container > *:not(:last-child) {
+  margin-bottom: 48px;
+}

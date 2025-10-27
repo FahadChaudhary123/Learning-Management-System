@@ -1,0 +1,70 @@
+# Dependency directories
+node_modules/
+Backend/node_modules
+Frontend/node_modules
+# Explanation: The node_modules/ directory contains all the dependencies installed via npm or Yarn. These are not meant to be tracked because they can be reinstalled using package.json and package-lock.json (or yarn.lock).
+
+# Build output
+dist/
+build/
+# Explanation: These directories contain the compiled/bundled output of your React app (e.g., after running npm run build). They are generated files and should not be tracked.
+
+# Environment variables
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+# Explanation: Environment variable files often contain sensitive information like API keys, database credentials, etc. They should not be committed to Git. However, you might want to include a .env.example file with placeholder values as a template.
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+# Explanation: Log files generated during development (e.g., npm or Yarn logs) are temporary and should not be tracked.
+
+# Editor/IDE files
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+# Explanation: These are configuration files for specific editors or IDEs (e.g., VS Code, IntelliJ IDEA, Sublime Text). They are user-specific and should not be tracked.
+
+# macOS system files
+.DS_Store
+# Explanation: macOS creates .DS_Store files to store folder metadata. They are not relevant to the project and should be ignored.
+
+# Windows system files
+Thumbs.db
+desktop.ini
+# Explanation: Windows generates these files for thumbnail caching and folder settings. They should be ignored.
+
+# Dependency lock files (optional)
+# package-lock.json
+# yarn.lock
+# Explanation: Some developers prefer to ignore package-lock.json or yarn.lock to avoid conflicts in collaborative projects, but it's generally recommended to commit these files to ensure consistent dependency versions across environments. Comment them out if you want to track them (which is the default recommendation).
+
+# Temporary files
+*.tmp
+*.temp
+*.swp
+# Explanation: Temporary files created by editors or scripts should be ignored.
+
+# Coverage reports (if you run tests)
+coverage/
+# Explanation: If you use a testing framework like Jest, it might generate a coverage/ directory with test coverage reports. These are generated files and should not be tracked.
+
+# Parcel cache (if you use Parcel as a bundler)
+.parcel-cache/
+# Explanation: Parcel (a bundler sometimes used with React) creates a cache directory that should be ignored.
+
+# React Native (if applicable)
+.expo/
+# Explanation: If your project involves React Native and Expo, the .expo/ directory contains temporary Expo files and should be ignored.
+
+# Miscellaneous
+*.bak
+*.gho
+*.orig
+# Explanation: Backup files or other miscellaneous generated files should be ignored.

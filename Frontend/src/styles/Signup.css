@@ -1,0 +1,256 @@
+/* Reset margins and ensure full coverage */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+.signup-container {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+}
+
+/* Left section */
+.signup-left {
+  flex: 1;
+  background: url("https://images.unsplash.com/photo-1519389950473-47ba0277781c")
+    no-repeat center center/cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  padding: 2rem;
+}
+
+.signup-left-text {
+  background: rgba(0, 0, 0, 0.4);
+  padding: 2rem;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.signup-left-text h3 {
+  font-size: 1.9rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.signup-left-text p {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* Right section (form) */
+.signup-right {
+  flex: 1;
+  background: #0f172a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem;
+}
+
+.signup-form {
+  width: 100%;
+  max-width: 400px;
+  color: white;
+}
+
+.signup-form h2 {
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* Form layout with spacing */
+.signup-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.signup-form input {
+  width: 100%;
+  padding: 0.9rem 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid #475569;
+  border-radius: 8px;
+  color: white;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+}
+
+.signup-form input::placeholder {
+  color: #cbd5e1;
+}
+
+.signup-form input:focus {
+  outline: none;
+  border-color: #facc15;
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 8px rgba(250, 204, 21, 0.3);
+}
+
+/* Error messages */
+.error {
+  color: #f87171;
+  font-size: 0.85rem;
+  margin-top: -0.7rem;
+  margin-bottom: -0.7rem;
+  text-align: left;
+}
+
+/* Submit button */
+.signup-form button {
+  width: 100%;
+  padding: 0.9rem;
+  background: #facc15;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1e293b;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.signup-form button:hover {
+  background: #eab308;
+}
+
+.signup-form button:disabled {
+  background: #fde68a;
+  cursor: not-allowed;
+}
+
+/* Login text */
+.signup-login-text {
+  margin-top: 1.5rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #cbd5e1;
+}
+
+.login-link {
+  color: #facc15;
+  cursor: pointer;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+
+.login-link:hover {
+  color: #eab308;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .signup-container {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .signup-left,
+  .signup-right {
+    flex: none;
+    width: 100%;
+    padding: 2rem;
+  }
+
+  .signup-left-text h3 {
+    font-size: 1.6rem;
+  }
+
+  .signup-left-text p {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .signup-form {
+    max-width: 100%;
+  }
+
+  .signup-form h2 {
+    font-size: 1.5rem;
+  }
+
+  .signup-form input,
+  .signup-form button {
+    font-size: 0.9rem;
+    padding: 0.8rem;
+  }
+
+  .signup-left-text h3 {
+    font-size: 1.4rem;
+  }
+
+  .signup-left-text p {
+    font-size: 0.9rem;
+  }
+}
+/* Role select styling (same as input) */
+/* Role select styling (same as input) */
+.signup-form select {
+  width: 100%;
+  padding: 0.9rem 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid #475569;
+  border-radius: 8px;
+  color: white;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+  appearance: none; /* removes default dropdown arrow (for consistent styling) */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+/* Dropdown arrow (custom yellow) */
+.signup-form select {
+  background-image: url("data:image/svg+xml;utf8,<svg fill='%23facc15' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1.2rem;
+}
+
+.signup-form select:focus {
+  outline: none;
+  border-color: #facc15;
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 8px rgba(250, 204, 21, 0.3);
+}
+
+/* Label for Role */
+.role-label {
+  display: block;
+  margin-bottom: 0.6rem;       /* normal spacing above the select */
+  color: #cbd5e1;              /* same muted tone used elsewhere */
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+/* Make all form labels consistent */
+.signup-form label {
+  display: block;
+  margin-bottom: 0.6rem;
+  color: #cbd5e1;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+.signup-form select option {
+  background: #2a280f; /* dark background for dropdown */
+  color: #cbd5e1;      /* readable text */
+}
+
+
