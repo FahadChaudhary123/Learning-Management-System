@@ -43,16 +43,28 @@ app.get("/api/health", (req, res) => {
 // Connect DB
 connectDB();
 
-// Create HTTP server
-const server = http.createServer(app);
 
-//  Initialize Socket.IO (moved to its own file)
-const io = initSocket(server);
-app.set("io", io);
+// const server = http.createServer(app);
+// const io = initSocket(server);
+// app.set("io", io);
 
 // Start server
-const PORT = process.env.PORT;
-server.listen(PORT, () => {
-  console.log(` Server running on port ${PORT}`);
-  console.log(` Video upload + Socket.IO support enabled`);
-});
+// const PORT = process.env.PORT;
+// server.listen(PORT, () => {
+//   console.log(` Server running on port ${PORT}`);
+//   console.log(` Video upload + Socket.IO support enabled`);
+// });
+// Initialize socket only when running locally
+if (require.main === module) {
+  const server = http.createServer(app);
+  const io = initSocket(server);
+  app.set("io", io);
+
+  const PORT = process.env.PORT || 5000;
+  server.listen(PORT, () => {
+    console.log(`✅ Server running on port ${PORT}`);
+  });
+} else {
+  // Export app for Vercel serverless function
+  module.exports = app;
+}
