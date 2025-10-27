@@ -60,11 +60,31 @@ if (require.main === module) {
   const io = initSocket(server);
   app.set("io", io);
 
+  // ✅ Root route (GET)
+  app.get("/", (req, res) => {
+    res.json({
+      success: true,
+      message: "LMS Backend is running successfully 🚀",
+      environment: process.env.NODE_ENV || "development",
+      timestamp: new Date().toISOString(),
+    });
+  });
+
   const PORT = process.env.PORT || 5000;
   server.listen(PORT, () => {
     console.log(`✅ Server running on port ${PORT}`);
   });
 } else {
   // Export app for Vercel serverless function
+  app.get("/", (req, res) => {
+    res.json({
+      success: true,
+      message: "LMS Backend (Serverless) is running successfully on Vercel 🚀",
+      environment: process.env.NODE_ENV || "production",
+      timestamp: new Date().toISOString(),
+    });
+  });
+
   module.exports = app;
 }
+
