@@ -1,6 +1,7 @@
-// backend/routes/instructorRoutes.js (Updated for Cloudinary)
+// backend/routes/instructorRoutes.js (Fixed)
 const express = require('express');
 const router = express.Router();
+
 const {
   getInstructorDashboard,
   getInstructorCourses,
@@ -12,25 +13,24 @@ const {
   deleteCourse,
   getCourseAnalytics,
   getCourseStudents,
-  searchInstructorCourses
+  searchInstructorCourses,
 } = require('../controllers/instructorController');
 
-// UPDATED: Import uploadController with new methods
-const { 
+const {
   uploadVideo: uploadVideoHandler,
-  uploadThumbnail, // NEW: Import thumbnail upload handler
+  uploadThumbnail,
   deleteVideo,
-  getUploadStats 
+  getUploadStats,
 } = require('../controllers/uploadController');
 
 const { protect, authorizeRoles } = require('../middlewares/authMiddleware');
-const { uploadVideo } = require('../utils/multerConfig'); // Multer middleware
-const { uploadImage } = require('../utils/cloudinary');
+const { uploadVideo, uploadImage } = require('../utils/multerConfig'); // ✅ Correct multer imports
 
-// Apply protection and instructor authorization to all routes
+// Apply authentication & instructor authorization
 router.use(protect);
 router.use(authorizeRoles('Instructor'));
 
+// Instructor routes
 router.get('/dashboard', getInstructorDashboard);
 router.get('/courses', getInstructorCourses);
 router.get('/courses/search', searchInstructorCourses);
@@ -42,6 +42,8 @@ router.patch('/courses/:id/unpublish', unpublishCourse);
 router.delete('/courses/:id', deleteCourse);
 router.get('/courses/:id/analytics', getCourseAnalytics);
 router.get('/courses/:id/students', getCourseStudents);
+
+// Upload routes
 router.post('/upload/video', uploadVideo.single('video'), uploadVideoHandler);
 router.post('/upload/thumbnail', uploadImage.single('thumbnail'), uploadThumbnail);
 router.delete('/upload/video/:publicId', deleteVideo);

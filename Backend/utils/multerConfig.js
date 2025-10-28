@@ -1,9 +1,9 @@
-// backend/utils/multerConfig.js (Updated for Cloudinary)
+// backend/utils/multerConfig.js (Fixed for Cloudinary)
 const multer = require('multer');
 const path = require('path');
 const fs = require('fs');
 
-// Create temp directory for uploads (will be deleted after Cloudinary upload)
+// ✅ Create temp directory for uploads
 const createTempDir = () => {
   const tempDir = 'temp_uploads';
   if (!fs.existsSync(tempDir)) {
@@ -14,37 +14,51 @@ const createTempDir = () => {
 
 const tempDir = createTempDir();
 
-// Simple storage for temporary files
+// ✅ Shared storage config (disk storage for temporary Cloudinary upload)
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
     cb(null, tempDir);
   },
   filename: (req, file, cb) => {
-    const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
+    const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1e9);
     const fileExtension = path.extname(file.originalname);
     const filename = `${file.fieldname}-${uniqueSuffix}${fileExtension}`;
     cb(null, filename);
-  }
+  },
 });
 
-// File filter
-const fileFilter = (req, file, cb) => {
-  if (file.mimetype.startsWith('video/') || file.mimetype.startsWith('image/')) {
+// ✅ Video file filter
+const videoFilter = (req, file, cb) => {
+  if (file.mimetype.startsWith('video/')) {
     cb(null, true);
   } else {
-    cb(new Error('Invalid file type. Only videos and images are allowed.'), false);
+    cb(new Error('Only video files are allowed!'), false);
   }
 };
 
-// Create multer instance
-const uploadVideo = multer({
-  storage: storage,
-  fileFilter: fileFilter,
-  limits: {
-    fileSize: 100 * 1024 * 1024 // 100MB
+// ✅ Image file filter
+const imageFilter = (req, file, cb) => {
+  if (file.mimetype.startsWith('image/')) {
+    cb(null, true);
+  } else {
+    cb(new Error('Only image files are allowed!'), false);
   }
+};
+
+// ✅ Create multer instances
+const uploadVideo = multer({
+  storage,
+  fileFilter: videoFilter,
+  limits: { fileSize: 200 * 1024 * 1024 }, // 200MB max
+});
+
+const uploadImage = multer({
+  storage,
+  fileFilter: imageFilter,
+  limits: { fileSize: 10 * 1024 * 1024 }, // 10MB max
 });
 
 module.exports = {
-  uploadVideo
+  uploadVideo,
+  uploadImage,
 };
