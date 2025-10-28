@@ -8,8 +8,8 @@ const authRoutes = require("./routes/authRoutes");
 const userRoutes = require("./routes/userRoutes");
 const courseRoutes = require("./routes/courseRoutes");
 //const instructorRoutes = require("./routes/instructorRoutes");
-//const videoRoutes = require("./routes/videoRoutes");
-// const enrollmentRoutes = require("./routes/enrollmentRoutes");
+const videoRoutes = require("./routes/videoRoutes");
+ const enrollmentRoutes = require("./routes/enrollmentRoutes");
 
 dotenv.config();
 connectDB();
@@ -31,8 +31,8 @@ app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/courses", courseRoutes);
 //app.use("/api/instructor", instructorRoutes);
-//app.use("/api/videos", videoRoutes);
-// app.use("/api/enrollments", enrollmentRoutes);
+app.use("/api/videos", videoRoutes);
+app.use("/api/enrollments", enrollmentRoutes);
 
 // Root route
 app.get("/", (req, res) => {
