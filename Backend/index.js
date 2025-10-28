@@ -1,3 +1,4 @@
+// server.js
 const express = require("express");
 const dotenv = require("dotenv");
 const cors = require("cors");
@@ -24,9 +25,11 @@ app.use(
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use('/uploads/videos', express.static(path.join(__dirname, 'uploads/videos')));
-app.use('/uploads/thumbnails', express.static(path.join(__dirname, 'uploads/thumbnails')));
+// Serve uploads (optional for Vercel – might need external storage)
+app.use("/uploads/videos", express.static(path.join(__dirname, "uploads/videos")));
+app.use("/uploads/thumbnails", express.static(path.join(__dirname, "uploads/thumbnails")));
 
+// API routes
 app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/courses", courseRoutes);
@@ -34,13 +37,15 @@ app.use("/api/instructor", instructorRoutes);
 app.use("/api/videos", videoRoutes);
 app.use("/api/enrollments", enrollmentRoutes);
 
+// Root route
 app.get("/", (req, res) => {
   res.json({
     success: true,
-    message: "✅ LMS Backend (Vercel version) is running successfully!",
+    message: "✅ LMS Backend (Vercel) is running successfully!",
     environment: process.env.NODE_ENV || "production",
     timestamp: new Date().toISOString(),
   });
 });
 
+// ✅ No app.listen() here — just export app
 module.exports = app;
