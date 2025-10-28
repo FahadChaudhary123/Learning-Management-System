@@ -25,6 +25,7 @@ const {
 
 const { protect, authorizeRoles } = require('../middlewares/authMiddleware');
 const { uploadVideo } = require('../utils/multerConfig'); // Multer middleware
+const { uploadImage } = require('../utils/cloudinary');
 
 // Apply protection and instructor authorization to all routes
 router.use(protect);
@@ -42,7 +43,7 @@ router.delete('/courses/:id', deleteCourse);
 router.get('/courses/:id/analytics', getCourseAnalytics);
 router.get('/courses/:id/students', getCourseStudents);
 router.post('/upload/video', uploadVideo.single('video'), uploadVideoHandler);
-router.post('/upload/thumbnail', uploadVideo.single('thumbnail'), uploadThumbnail);
+router.post('/upload/thumbnail', uploadImage.single('thumbnail'), uploadThumbnail);
 router.delete('/upload/video/:publicId', deleteVideo);
 router.get('/upload/stats', getUploadStats);
 
