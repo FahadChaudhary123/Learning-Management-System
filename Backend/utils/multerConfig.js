@@ -1,47 +1,24 @@
-// backend/utils/multerConfig.js (Fixed for Cloudinary)
-const multer = require('multer');
-const path = require('path');
-const fs = require('fs');
+// backend/utils/multerConfig.js
+const multer = require("multer");
 
-// ✅ Create temp directory for uploads
-const createTempDir = () => {
-  const tempDir = 'temp_uploads';
-  if (!fs.existsSync(tempDir)) {
-    fs.mkdirSync(tempDir, { recursive: true });
-  }
-  return tempDir;
-};
-
-const tempDir = createTempDir();
-
-// ✅ Shared storage config (disk storage for temporary Cloudinary upload)
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, tempDir);
-  },
-  filename: (req, file, cb) => {
-    const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1e9);
-    const fileExtension = path.extname(file.originalname);
-    const filename = `${file.fieldname}-${uniqueSuffix}${fileExtension}`;
-    cb(null, filename);
-  },
-});
+// ✅ Memory storage for Vercel (no disk or temp directory)
+const storage = multer.memoryStorage();
 
 // ✅ Video file filter
 const videoFilter = (req, file, cb) => {
-  if (file.mimetype.startsWith('video/')) {
+  if (file.mimetype.startsWith("video/")) {
     cb(null, true);
   } else {
-    cb(new Error('Only video files are allowed!'), false);
+    cb(new Error("Only video files are allowed!"), false);
   }
 };
 
 // ✅ Image file filter
 const imageFilter = (req, file, cb) => {
-  if (file.mimetype.startsWith('image/')) {
+  if (file.mimetype.startsWith("image/")) {
     cb(null, true);
   } else {
-    cb(new Error('Only image files are allowed!'), false);
+    cb(new Error("Only image files are allowed!"), false);
   }
 };
 
