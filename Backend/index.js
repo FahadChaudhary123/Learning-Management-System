@@ -25,9 +25,6 @@ app.use(
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Serve uploads (optional for Vercel – might need external storage)
-app.use("/uploads/videos", express.static(path.join(__dirname, "uploads/videos")));
-app.use("/uploads/thumbnails", express.static(path.join(__dirname, "uploads/thumbnails")));
 
 // API routes
 app.use("/api/auth", authRoutes);
