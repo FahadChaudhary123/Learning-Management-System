@@ -7,12 +7,17 @@ export const SocketProvider = ({ children }) => {
   const [socket, setSocket] = useState(null);
 
   useEffect(() => {
-    // Use environment variable or fallback
+    // ✅ Use Vite env variable or fallback to localhost for dev
     const backendURL =
-      process.env.REACT_APP_BACKEND_URL || "http://localhost:5000";
+      import.meta.env.VITE_BACKEND_URL ||
+      process.env.REACT_APP_BACKEND_URL ||
+      "http://localhost:5000";
+
+    console.log("🔗 Connecting to socket at:", backendURL);
 
     const newSocket = io(backendURL, {
       withCredentials: true,
+      transports: ["websocket"], // ✅ ensure real-time connection (not polling)
     });
 
     setSocket(newSocket);
@@ -29,6 +34,8 @@ export const SocketProvider = ({ children }) => {
   }, []);
 
   return (
-    <SocketContext.Provider value={socket}>{children}</SocketContext.Provider>
+    <SocketContext.Provider value={socket}>
+      {children}
+    </SocketContext.Provider>
   );
 };
