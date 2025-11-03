@@ -2,6 +2,8 @@
 node_modules/
 Backend/node_modules
 Frontend/node_modules
+Backend/.env
+Frontend/.env
 # Explanation: The node_modules/ directory contains all the dependencies installed via npm or Yarn. These are not meant to be tracked because they can be reinstalled using package.json and package-lock.json (or yarn.lock).
 
 # Build output
