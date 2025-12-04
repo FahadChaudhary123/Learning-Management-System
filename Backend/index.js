@@ -15,7 +15,7 @@ dotenv.config();
 
 const app = express();
 
-// ✅ Secure CORS setup (hidden origins via .env)
+// Secure CORS setup (hidden origins via .env)
 const allowedOrigins = process.env.ALLOWED_ORIGINS
   ? process.env.ALLOWED_ORIGINS.split(",").map((origin) => origin.trim())
   : [];
@@ -38,11 +38,11 @@ app.use(
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// ✅ Static file serving
+//  Static file serving
 app.use("/uploads/videos", express.static(path.join(__dirname, "uploads/videos")));
 app.use("/uploads/thumbnails", express.static(path.join(__dirname, "uploads/thumbnails")));
 
-// ✅ API Routes
+// API Routes
 app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/courses", courseRoutes);
@@ -72,7 +72,7 @@ connectDB();
 
 if (require.main === module) {
   const PORT = process.env.PORT || 5000;
-  app.listen(PORT, () => console.log(`✅ Server running on port ${PORT}`));
+  app.listen(PORT, () => console.log(` Server running on port ${PORT}`));
 } else {
   module.exports = app; // for Vercel
 }
