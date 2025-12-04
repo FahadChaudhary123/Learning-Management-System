@@ -27,7 +27,7 @@ app.use(
       if (!origin || allowedOrigins.includes(origin)) {
         callback(null, true);
       } else {
-        console.log("❌ Blocked by CORS:", origin);
+        console.log(" Blocked by CORS:", origin);
         callback(new Error("CORS not allowed for this origin"));
       }
     },
@@ -50,11 +50,11 @@ app.use("/api/instructor", instructorRoutes);
 app.use("/api/videos", videoRoutes);
 app.use("/api/enrollments", enrollmentRoutes);
 
-// ✅ Health & root routes
+//  Health & root routes
 app.get("/api/health", (req, res) => {
   res.json({
     success: true,
-    message: "Server running fine ✅",
+    message: "Server running fine ",
     timestamp: new Date().toISOString(),
   });
 });
@@ -62,12 +62,12 @@ app.get("/api/health", (req, res) => {
 app.get("/", (req, res) => {
   res.json({
     success: true,
-    message: "LMS Backend running successfully 🚀",
+    message: "LMS Backend running successfully ",
     environment: process.env.NODE_ENV || "development",
   });
 });
 
-// ✅ Connect DB and start
+// Connect DB and start
 connectDB();
 
 if (require.main === module) {
